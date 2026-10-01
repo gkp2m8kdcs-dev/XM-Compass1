@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — XM Compass</title>
+    <meta name="description" content="Get help with XM Compass. Frequently asked questions, contact information, and troubleshooting tips.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0d12;
+            --bg-soft: #11141b;
+            --card: #161a23;
+            --border: #232735;
+            --text: #f4f5f8;
+            --text-dim: #a8adbb;
+            --accent: #6c8cff;
+            --accent-2: #9a6cff;
+            --success: #4ade80;
+            --radius: 18px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            background: rgba(11, 13, 18, 0.85);
+            backdrop-filter: saturate(180%) blur(12px);
+            -webkit-backdrop-filter: saturate(180%) blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 17px;
+            color: var(--text);
+        }
+
+        .brand-mark {
+            width: 32px;
+            height: 32px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            font-size: 14px;
+        }
+
+        .nav-links a { color: var(--text-dim); }
+        .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+        @media (max-width: 640px) {
+            .nav-links { display: none; }
+        }
+
+        main { padding: 64px 0 96px; }
+
+        h1 {
+            font-size: clamp(30px, 5vw, 42px);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .lead {
+            color: var(--text-dim);
+            font-size: 17px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 40px 0 16px;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin: 22px 0 8px;
+            color: var(--text);
+        }
+
+        p, li {
+            color: var(--text-dim);
+            font-size: 15.5px;
+            margin-bottom: 10px;
+        }
+
+        ul { padding-left: 22px; }
+
+        strong { color: var(--text); font-weight: 600; }
+
+        /* Contact card */
+        .contact-card {
+            background: linear-gradient(135deg, rgba(108, 140, 255, 0.1), rgba(154, 108, 255, 0.05));
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .contact-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .contact-info .label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+
+        .contact-info .value {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .contact-info .value a { color: var(--text); }
+        .contact-info .value a:hover { color: var(--accent); }
+
+        .contact-info .hint {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+
+        .email-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .email-btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 22px 0;
+        }
+
+        .faq-item:first-child { border-top: 1px solid var(--border); }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .faq-a {
+            color: var(--text-dim);
+            font-size: 15px;
+        }
+
+        .faq-a code {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 2px 6px;
+            border-radius: 5px;
+            font-size: 13.5px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 32px 0;
+            color: var(--text-dim);
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 22px;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .footer-links a { color: var(--text-dim); }
+        .footer-links a:hover { color: var(--text); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav">
+        <a href="index.html" class="brand">
+            <span class="brand-mark">XC</span>
+            <span>XM Compass</span>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="support.html">Support</a>
+            <a href="terms.html">Terms</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <h1>Support</h1>
+        <p class="lead">Need a hand with XM Compass? You're in the right place. Browse the questions below or reach out — we read every email.</p>
+
+        <h2>Contact us</h2>
+        <div class="contact-card">
+            <div class="contact-icon">@</div>
+            <div class="contact-info">
+                <div class="label">Email support</div>
+                <div class="value"><a href="mailto:bidihefeg866@gmail.com">bidihefeg866@gmail.com</a></div>
+                <div class="hint">Replies typically arrive within 2 business days.</div>
+            </div>
+            <a class="email-btn" href="mailto:bidihefeg866@gmail.com?subject=XM%20Compass%20Support">Send email</a>
+        </div>
+
+        <h2>Frequently asked questions</h2>
+
+        <div class="faq-item">
+            <div class="faq-q">How do I add a transaction?</div>
+            <div class="faq-a">Tap the floating <strong>+</strong> button on the Dashboard or Transactions tab. Choose Income, Expense, or Transfer, enter the amount, pick a category, optionally attach a receipt photo, and save.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Where is my data stored?</div>
+            <div class="faq-a">Everything is stored locally on your iPhone. There is no server, no account, and no sync. Your data is included in your standard iOS device backups if you have iCloud or iTunes backup enabled.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">How do I back up my data?</div>
+            <div class="faq-a">The simplest way is to keep your regular iPhone backups enabled (iCloud or iTunes/Finder). For an extra copy, go to <strong>Settings → Data → Export</strong> and save the CSV or JSON file somewhere safe.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Can I move my data to a new iPhone?</div>
+            <div class="faq-a">Yes — restore from your iCloud or iTunes backup on the new device. XM Compass data lives inside the App's local storage and is included in the backup. If you want a manual transfer, export to JSON, copy the file to the new device, then re-import (where supported).</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">How do I export my data?</div>
+            <div class="faq-a">Open <strong>Settings → Data → Export</strong> and choose CSV or JSON. The file is generated on your device and saved to a share location you control.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">How do I delete all my data?</div>
+            <div class="faq-a">Open <strong>Settings → Data → Wipe All Data</strong> and confirm. This permanently removes every transaction, account, budget, goal, and receipt from the App. You can also delete the App itself to remove everything.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">How do budgets work?</div>
+            <div class="faq-a">Budgets use a monthly envelope per category. Set a limit, and the burndown chart compares your actual pace against an ideal line. You'll see a warning when you cross your own threshold.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">How do goals work?</div>
+            <div class="faq-a">Pick a name, a target amount, and a date. XM Compass computes how much you need to save per day, lays out milestones, and the progress ring updates the moment you log a contribution.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">The app feels slow with a lot of data. What can I do?</div>
+            <div class="faq-a">If you've been using the App for a long time, exporting to JSON and using <strong>Settings → Data → Wipe All Data</strong> (then re-importing if needed) can sometimes help. If the issue persists, please email us with your device model and iOS version.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">Does the App support iPad or Mac?</div>
+            <div class="faq-a">XM Compass is iPhone-only and requires iOS 16 or later. It is not currently available for iPad or Mac.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-q">How do I request a feature or report a bug?</div>
+            <div class="faq-a">Send us an email at <a href="mailto:bidihefeg866@gmail.com">bidihefeg866@gmail.com</a>. For bugs, please include your device model, iOS version, and the steps to reproduce the issue. Screenshots are always appreciated.</div>
+        </div>
+
+        <h2>Privacy &amp; data questions</h2>
+        <p>XM Compass does not collect, transmit, or sell any personal data. The full policy lives on our <a href="privacy.html">Privacy page</a>. If you have any privacy-related questions, email us and we'll get back to you.</p>
+    </div>
+</main>
+
+<footer>
+    <div>© 2026 XM Compass. All rights reserved.</div>
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
+        <a href="terms.html">Terms</a>
+    </div>
+</footer>
+
+</body>
+</html>
